@@ -1,0 +1,28 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        int num1 = 125;
+        int num2 = 134;
+
+        int sum1 = digitSum(num1);
+        int sum2 = digitSum(num2);
+
+        System.out.println("Sum of digits of " + num1 + " = " + sum1);
+        System.out.println("Sum of digits of " + num2 + " = " + sum2);
+
+        System.out.println("Total Sum = " + (sum1 + sum2));
+    }
+
+    static int digitSum(int num) {
+
+        int sum = 0;
+
+        while (num > 0) {
+            sum = sum + (num % 10); 
+            num = num / 10;         
+        }
+
+        return sum;
+    }
+}
