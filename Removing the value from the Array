@@ -1,0 +1,17 @@
+import java.util.Arrays;
+
+class Main {
+    public static void main(String args[]) {
+
+        String[] original = {"Hasini", "Farvin", "Thanuja"};
+        int indexToRemove = 0;
+
+        String[] result = new String[original.length - 1];
+
+        System.arraycopy(original, 0, result, 0, indexToRemove);
+        System.arraycopy(original, indexToRemove + 1, result, indexToRemove,
+                original.length - indexToRemove - 1);
+
+        System.out.println(Arrays.toString(result));
+    }
+}
