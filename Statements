@@ -1,0 +1,84 @@
+// if else statement
+
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        String userName = "Hasini";
+        String password = "Hasini@123";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your userName: ");
+        String uname = sc.nextLine();
+        System.out.println("Enter your password: ");
+        String pass = sc.nextLine();
+        if (userName.equals(uname) && password.equals(pass)){
+            System.out.println("welcome to home page");
+        }
+        else{
+            System.out.println("The page is invalid");
+        }
+        
+        sc.close();
+        
+    }
+}
+
+// odd or even check by using if else statement 
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        if (num < 0) {
+            System.out.println("Invalid");
+        } else if (num % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+
+        sc.close();
+    }
+}
+
+
+// if,elseif,else statements
+
+
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+
+        String userName = "Hasini";
+        String password = "Hasini@123";
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your userName: ");
+        String uname = sc.nextLine();
+
+        System.out.print("Enter your password: ");
+        String pass = sc.nextLine();
+
+        if (userName.equals(uname) && password.equals(pass)) {
+            System.out.println("Welcome to Home Page");
+        }
+        else if (!userName.equals(uname) && password.equals(pass)) {
+            System.out.println("Invalid User Name");
+        }
+        else if (userName.equals(uname) && !password.equals(pass)) {
+            System.out.println("Invalid Password");
+        }
+        else {
+            System.out.println("Invalid User Name and Password");
+        }
+
+        sc.close();
+    }
+}
+
