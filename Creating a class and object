@@ -1,0 +1,31 @@
+class A {
+    String name = "Hasini";
+    int age = 20;
+    String city = "Chennai";
+}
+
+class B {
+    String name = "Priya";
+    int age = 21;
+    String city = "Hyderabad";
+}
+
+class C {
+    public static void main(String[] args) {
+
+        A a = new A();
+        B b = new B();
+
+        System.out.println("Personal Details of Class A");
+        System.out.println("Name : " + a.name);
+        System.out.println("Age  : " + a.age);
+        System.out.println("City : " + a.city);
+
+        System.out.println();
+
+        System.out.println("Personal Details of Class B");
+        System.out.println("Name : " + b.name);
+        System.out.println("Age  : " + b.age);
+        System.out.println("City : " + b.city);
+    }
+}
