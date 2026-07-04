@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter first string:");
+        String s1 = sc.nextLine();
+
+        System.out.println("Enter second string:");
+        String s2 = sc.nextLine();
+
+        String[] str1 = s1.split(" ");
+        String[] str2 = s2.split(" ");
+
+        System.out.println("Common String:");
+
+        for (int i = 0; i < str1.length; i++) {
+            for (int j = 0; j < str2.length; j++) {
+                if (str1[i].equals(str2[j])) {
+                    System.out.println(str1[i]);
+                }
+            }
+        }
+    }
+}
