@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int salary = 30000;
+        int months = 24;
+
+        System.out.print("Enter unpaid month (1-24): ");
+        int unpaidMonth = sc.nextInt();
+
+        for (int i = 1; i <= months; i++) {
+            if (i == unpaidMonth) {
+                System.out.println("Month " + i + " : Due = " + salary);
+            } else {
+                System.out.println("Month " + i + " : Paid = " + salary);
+            }
+        }
+
+        sc.close();
+    }
+}
