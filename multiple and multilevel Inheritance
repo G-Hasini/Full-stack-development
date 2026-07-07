@@ -1,0 +1,59 @@
+import java.util.Scanner;
+interface Deposit {
+    void deposit(double amount);
+}
+interface Debit {
+    void debit(double amount);
+}
+class BankAccount {
+    protected double balance = 1000;
+
+    public void checkBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+}
+class Customer extends BankAccount {
+    String name;
+
+    public Customer(String name) {
+        this.name = name;
+    }
+}
+class Transaction extends Customer implements Deposit, Debit {
+    public Transaction(String name) {
+        super(name);
+    }
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+    public void debit(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Debited: " + amount);
+        } else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+    public void balanceEnquiry() {
+        System.out.println("Account Holder: " + name);
+        System.out.println("Available Balance: " + balance);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Transaction obj = new Transaction("Hasini");
+        System.out.print("Enter deposit amount: ");
+        double deposit = sc.nextDouble();
+        obj.deposit(deposit);
+        System.out.print("Enter debit amount: ");
+        double debit = sc.nextDouble();
+        obj.debit(debit);
+        System.out.println("\nCheck Balance");
+        obj.checkBalance();
+        System.out.println("\nBalance Enquiry");
+        obj.balanceEnquiry();
+        sc.close();
+    }
+}
