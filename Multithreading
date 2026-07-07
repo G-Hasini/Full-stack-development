@@ -1,0 +1,90 @@
+class Bank {
+
+    private int balance = 100;
+
+    public synchronized void withdraw(String customerName, int amount) {
+
+        if (balance >= amount) {
+            balance = balance - amount;
+            System.out.println(customerName + " withdrawn " + amount);
+            System.out.println("Balance: " + balance);
+        } else {
+            System.out.println(customerName + " you can not withdraw " + amount);
+            System.out.println("Your balance is: " + balance);
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+
+    public synchronized void deposit(String customerName, int amount) {
+
+        balance = balance + amount;
+
+        System.out.println(customerName + " deposited " + amount);
+        System.out.println("Balance after deposit: " + balance);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class ThreadWithdrawal extends Thread {
+
+    Bank bank;
+    String customerName;
+    int amount;
+
+    ThreadWithdrawal(Bank bank, String customerName, int amount) {
+        this.bank = bank;
+        this.customerName = customerName;
+        this.amount = amount;
+    }
+
+    public void run() {
+        bank.withdraw(customerName, amount);
+    }
+}
+
+class ThreadDeposit extends Thread {
+
+    Bank bank;
+    String customerName;
+    int amount;
+
+    ThreadDeposit(Bank bank, String customerName, int amount) {
+        this.bank = bank;
+        this.customerName = customerName;
+        this.amount = amount;
+    }
+
+    public void run() {
+        bank.deposit(customerName, amount);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Bank bank = new Bank();
+
+        ThreadWithdrawal t1 = new ThreadWithdrawal(bank, "Arnab", 20);
+        ThreadWithdrawal t2 = new ThreadWithdrawal(bank, "Monodwip", 40);
+        ThreadDeposit t3 = new ThreadDeposit(bank, "Mukta", 35);
+        ThreadWithdrawal t4 = new ThreadWithdrawal(bank, "Rinkel", 80);
+        ThreadWithdrawal t5 = new ThreadWithdrawal(bank, "Shubham", 40);
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+    }
+}
