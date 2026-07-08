@@ -1,0 +1,75 @@
+import java.util.ArrayList;
+
+class Student {
+    void display(ArrayList<String> names) {
+        System.out.println("Students:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+
+class ClassA extends Student {
+    @Override
+    void display(ArrayList<String> names) {
+        System.out.println("Class A:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+
+class ClassB extends Student {
+    @Override
+    void display(ArrayList<String> names) {
+        System.out.println("Class B:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+
+class ClassC extends Student {
+    @Override
+    void display(ArrayList<String> names) {
+        System.out.println("Class C:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> classA = new ArrayList<>();
+        ArrayList<String> classB = new ArrayList<>();
+        ArrayList<String> classC = new ArrayList<>();
+        String[] friends = {
+            "Hasini", "santhosh", "Dillu", "Linu", "jashu",
+            "gagana", "Samudra", "gurshanth", "jeevan", "jayapriya"
+        };
+        for (int i = 0; i < friends.length; i++) {
+            if (i % 3 == 0)
+                classA.add(friends[i]);
+            else if (i % 3 == 1)
+                classB.add(friends[i]);
+            else
+                classC.add(friends[i]);
+        }
+        Student s;
+
+        s = new ClassA();
+        s.display(classA);
+
+        System.out.println();
+
+        s = new ClassB();
+        s.display(classB);
+
+        System.out.println();
+
+        s = new ClassC();
+        s.display(classC);
+    }
+}
