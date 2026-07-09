@@ -1,0 +1,14 @@
+class Main {
+    public static void main(String args[]) {
+        int[] numbers = {1, 2, 3};
+        try {
+            System.out.println(numbers[4]);
+        } 
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception caught :" + e);
+        }finally{
+            System.out.println(" Block Executes");
+        }
+        System.out.println("program continues......");
+    }
+}
