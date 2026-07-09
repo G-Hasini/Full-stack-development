@@ -1,0 +1,27 @@
+class Main {
+    public static void main(String args[]) {
+
+        int balance = 500;
+        int debitAmount = 100;
+
+        try {
+            if (debitAmount > balance) {
+                throw new ArithmeticException("Insufficient Balance");
+            }
+
+            balance = balance - debitAmount;
+            System.out.println("Amount Debited Successfully");
+            System.out.println("Remaining Balance: " + balance);
+        }
+
+        catch (ArithmeticException e) {
+            System.out.println("Transaction Failed: " + e.getMessage());
+        }
+
+        finally {
+            System.out.println("Thank you for banking with us.");
+        }
+
+        System.out.println("Program Continues...");
+    }
+}
